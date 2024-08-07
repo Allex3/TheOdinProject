@@ -1,0 +1,9 @@
+body {
+    background-color: rgb(133, 244, 133);
+    text-align: center;
+}
+
+#recipeList {
+    background-color: pink;
+    list-style-type: none;
+}
