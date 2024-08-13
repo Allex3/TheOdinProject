@@ -33,7 +33,3 @@ body {
 .topBorder {
     border-top: 1px solid gray;
 }
-
-.hovered {
-    background-color: rgb(190, 189, 189);
-}
