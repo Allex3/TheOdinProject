@@ -1,8 +1,32 @@
-.gridLine {
+body {
     display: flex;
-    flex: initial;
+    flex: 1 1 auto;
+    justify-content: center;
 }
 
+
+.gridLine {
+    display: flex;
+    flex: 0 0 400px;
+    width: 434px; /*squares with borders*/
+}
 .squareDivInGrid {
     border: 1px solid gray;
+    width: 25px;
+    height: 25px;
+}
+
+.rightBorder {
+    border-right: 2px solid gray;
+}
+.leftBorder {
+    border-left: 2px solid gray;
+} /* left and right border for square grid, make it as the others who intertwine */
+
+/* bottom and top for the grid line, put it on top of the square div's bordeers */
+.bottomBorder {
+    border-bottom: 1px solid gray;
+}
+.topBorder {
+    border-top: 1px solid gray;
 }
