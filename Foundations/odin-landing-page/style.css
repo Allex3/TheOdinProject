@@ -1,0 +1,200 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+/* make content go to the edges of page and use the desired font Roboto*/
+body {
+  margin: 0;
+  font-family: "Roboto";
+}
+html, body {
+    overflow-x: hidden;
+}
+
+/* header and hero text, image, styling */
+.headerAndHero {
+  background-color: #1f2937;
+  padding: 0 200px;
+  padding-bottom: 70px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  height: 10vh;
+  margin-bottom: 60px;
+  flex-wrap: wrap;
+}
+.logo {
+  font-weight: 700;
+  font-size: 24px;
+  color: #f9faf8;
+}
+.headerLinks {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  margin-left: auto;
+  gap: 20px;
+  font-size: 18px;
+}
+.headerLinks a {
+  text-decoration: none;
+  color: #e5e7eb;
+}
+
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.heroLeft {
+  display: flex;
+  flex-flow: column wrap;
+  width: 400px;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.heroRight {
+    display: flex;
+    width: 50vh;
+}
+.heroLeft .heroTitle {
+  font-weight: bold;
+  font-size: 48px;
+  color: #f9faf8;
+}
+
+.heroLeft .heroText {
+  color: #e5e7eb;
+  font-size: 18px;
+}
+.heroLeft a {
+  background-color: #3882f6;
+  border-radius: 5px;
+  text-decoration: none;
+  padding: 1px 6px;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 25px;
+}
+.heroRight img {
+  width: 100%;
+  height: auto;
+  margin-left: auto;
+}
+
+.heroRight {
+  margin-left: auto;
+}
+
+/* Information styling with some text and illustrations/images*/
+
+.information {
+  margin-bottom: 70px;
+}
+
+.infoText {
+  display: flex;
+  padding: 25px 0;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 36px;
+  color: #1f2937;
+}
+.infoContent {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  margin: 0 200px;
+  font-size: 14px;
+  justify-content: center;
+  color: rgb(103, 103, 103);
+  flex-wrap: wrap;
+  gap: 50px;
+  text-align: center;
+}
+.infoContent .infoItem {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 150px;
+}
+.infoContent .contentIllustration {
+  width: 150px;
+  height: 150px;
+  border: 2px solid rgb(13, 132, 250);
+  border-radius: 10px;
+}
+
+/* quote styling */
+
+.quoteContainer {
+  background-color: #e5e7eb;
+  padding: 100px 200px;
+  display: flex;
+  flex-flow: column wrap;
+}
+.quoteText {
+  font-weight: 250;
+  font-size: 36px;
+  font-style: italic;
+}
+.quoteOrigin {
+  margin-left: auto;
+}
+
+/* ad section */
+
+.persuasion {
+  margin: 50px 100px;
+  background-color: #3882f6;
+  border-radius: 6px;
+  padding: 50px 150px;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+.persuasionLeft {
+  display: flex;
+  width: 300px;
+  flex-flow: column wrap;
+  color: white;
+}
+.persuasionTitle {
+    font-weight: bold;
+}
+
+.persuasionSignup {
+  background-color: #3882f6;
+  border-radius: 5px;
+  text-decoration: none;
+  border: 1px solid white;
+  padding: 1px 6px;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 25px;
+  margin-left: auto;
+}
+
+/* footer */
+
+.footer {
+    display: flex;
+    padding: 40px;
+    align-items: center;
+    justify-content: center;
+    background-color: #1f2937;
+    color: white;
+}
