@@ -9,13 +9,32 @@ gridLine.classList.toggle("gridLine");
 
 //the function for creating the grid
 
+function removeGrid() {
+    //remove the current grid from the page 
+    const currGridLines = document.querySelectorAll(".gridLine"); //reference to all the grid lines
+    currGridLines.forEach( (line) => {
+        container.removeChild(line); //remove the line from the main div container
+    })
+    
+    //now remove the current children from the const gridLine variable that are the squares of the last grid
+    while (gridLine.firstChild) { //when false it doesn't have any children left
+        gridLine.removeChild(gridLine.firstChild);
+    }
+
+}
+
 function createGrid(sideSize) {
+    //create clones of main variables for gridLine
     for (let i = 0; i < sideSize; i++) {
         //sideSize squares on the grid line
 
         const divClone = divInGrid.cloneNode(true);
         if (i == 0) divClone.classList.toggle("leftBorder");
         if (i == sideSize - 1) divClone.classList.toggle("rightBorder");
+        //set their width
+        divClone.style.width = `${800/sideSize}px`;
+        divClone.style.height = `${800/sideSize}px`;
+
 
         gridLine.appendChild(divClone);
     }
@@ -25,6 +44,9 @@ function createGrid(sideSize) {
         const lineClone = gridLine.cloneNode(true);
         if (i == 0) lineClone.classList.toggle("topBorder");
         if (i == sideSize - 1) lineClone.classList.toggle("bottomBorder");
+
+        
+
         container.appendChild(lineClone);
     }
 
@@ -55,5 +77,10 @@ selectGrid.addEventListener("click", () => {
             "How many squares should a line of the grid have? The grid is a square, so on the sides it will have the same number of squares."
         )
     );
-    createGrid(sizeSize);
+    if (sideSize>100) {
+        alert("Select a value smaller than or equal to 100.");
+        return;
+    }
+    removeGrid();
+    createGrid(sideSize);
 });

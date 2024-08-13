@@ -5,16 +5,18 @@ body {
     flex-direction: column;
 }
 
+.container {
+    width: 800px;
+    height: 800px;
+}
 
 .gridLine {
     display: flex;
-    flex: 0 0 400px;
-    width: 434px; /*squares with borders*/
+    flex: auto;
+    width: 800px;
 }
 .squareDivInGrid {
-    border: 1px solid gray;
-    width: 25px;
-    height: 25px;
+    border: 1px solid #808080;
 }
 
 .rightBorder {
