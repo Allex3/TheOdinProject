@@ -16,104 +16,100 @@ function getComputerChoice() {
     }
 }
 
-function getHumanChoice() {
-    let userChoice = prompt("Choose what you play: rock, paper or scissors.");
-    userChoice = userChoice.toLowerCase();
-    if (
-        userChoice !== "rock" &&
-        userChoice !== "paper" &&
-        userChoice !== "scissors"
-    ) {
-        console.log("You entered an invalid value. Input what you play again.");
-        getHumanChoice();
-    }
-    return userChoice;
+function getWinnerMessage(userScore, computerScore) {
+    return userScore > computerScore
+        ? "User wins! Humans are superior!"
+        : "Computer wins! Lucky loser!";
 }
 
-function showWinner(userScore, computerScore) 
-{
-    console.log(userScore > computerScore ? "User wins! Humans are superior!" : "Computer wins! Lucky loser!");
+//functions to play the game... what happens when the round is a draw
+//a win, or a lose, and an intutiive switch making for all the 9 combinations of values
+function roundDraw(userChoice, computerChoice) {
+    return `${userChoice} vs ${computerChoice} is a draw!`;
 }
 
+function userWins(userChoice, computerChoice) {
+    userScore++;
+    return `You win! ${userChoice} beats ${computerChoice}`;
+}
 
-function playGame() {
-    let userScore = 0;
-    let computerScore = 0;
-    let userChoice, computerChoice;
+function computerWins(userChoice, computerChoice) {
+    computerScore++;
+    return `The computer wins! ${computerChoice} beats ${userChoice}`;
+}
 
-    for (let i=1; i<=5; i++) { //main loop for the rounds
-        userChoice = getHumanChoice();
-        computerChoice = getComputerChoice();
-
-        playRound(userChoice, computerChoice);
-
-        console.log(`User score: ${userScore}`);
-        console.log(`Computer score: ${computerScore}`);
+function playRound(userChoice, computerChoice) {
+    if (userChoice == computerChoice) {
+        return roundDraw(userChoice, computerChoice);
     }
-
-    showWinner(userScore, computerScore); //calculates the winner and shows it
-    
-
-    //functions to play the game... what happens when the round is a draw
-    //a win, or a lose, and an intutiive switch making for all the 9 combinations of values
-    function roundDraw(userChoice, computerChoice) {
-        console.log(`${userChoice} vs ${computerChoice} is a draw!`);
+    switch (userChoice) {
+        case "rock":
+            if (computerChoice == "scissors")
+                return userWins(userChoice, computerChoice);
+            //if it reaches here it's paper
+            return computerWins(userChoice, computerChoice);
+        case "paper":
+            if (computerChoice == "rock")
+                return userWins(userChoice, computerChoice);
+            //if it reaches here it's scissors
+            return computerWins(userChoice, computerChoice);
+        case "scissors":
+            if (computerChoice == "paper")
+                return userWins(userChoice, computerChoice);
+            //if it reaches here it's rock
+            return computerWins(userChoice, computerChoice);
     }
-    
-    function userWins(userChoice, computerChoice) {
-        console.log(`You win! ${userChoice} beats ${computerChoice}`);
-        userScore++;
-    }
-    
-    function computerWins(userChoice, computerChoice) {
-        console.log(`The computer wins! ${computerChoice} beats ${userChoice}`);
-        computerScore++;
-    }
+}
 
-    function playRound(userChoice, computerChoice) {
-        if (userChoice == computerChoice) {
-            roundDraw(userChoice, computerChoice);
-            return;
+let userScore = 0;
+let computerScore = 0;
+let userChoice, computerChoice;
+
+const roundMessageP = document.createElement("p");
+const userScoreP = document.createElement("p");
+const computerScoreP = document.createElement("p");
+
+resultsContainer.appendChild(roundMessageP);
+resultsContainer.appendChild(userScoreP);
+resultsContainer.appendChild(computerScoreP);
+
+userScoreP.textContent = `Player score: ${userScore}`;
+computerScoreP.textContent = `Player score: ${computerScore}`;
+
+const optionButtons = document.querySelectorAll(".gameOption");
+
+optionButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        if (userScore == 5 || computerScore == 5) return; //don't do anything if game finished
+
+        computerChoice = getComputerChoice(); //get a random computer choice
+        userChoice = button.textContent.toLowerCase(); //text content of chosen player button choice
+        let roundMessage = playRound(userChoice, computerChoice);
+
+        roundMessageP.textContent = roundMessage;
+        userScoreP.textContent = `Player score: ${userScore}`;
+        computerScoreP.textContent = `Player score: ${computerScore}`;
+
+        let winnerMessage;
+        if (userScore == 5 || computerScore == 5) {
+            winnerMessage = getWinnerMessage(userScore, computerScore);
+            roundMessageP.textContent = winnerMessage; //display the winner
+
+            //stop the game
+            resultsContainer.removeChild(userScoreP);
+            resultsContainer.removeChild(computerScoreP);
         }
-        switch (userChoice) {
-            case "rock":
-                if (computerChoice == "scissors") {
-                    userWins(userChoice, computerChoice);
-                    return;
-                }
-                if (computerChoice == "rock") {
-                    roundDraw();
-                    return;
-                }
-                //if it reaches here it's paper
-                computerWins(userChoice, computerChoice);
-                return;
-            case "paper":
-                if (computerChoice == "rock") {
-                    userWins(userChoice, computerChoice);
-                    return;
-                }
-                if (computerChoice == "paper") {
-                    roundDraw();
-                    return;
-                }
-                //if it reaches here it's scissors
-                computerWins(userChoice, computerChoice);
-                return;
-            case "scissors":
-                if (computerChoice == "paper") {
-                    userWins(userChoice, computerChoice);
-                    return;
-                }
-                if (computerChoice == "scissors") {
-                    roundDraw();
-                    return;
-                }
-                //if it reaches here it's rock
-                computerWins(userChoice, computerChoice);
-                return;
-        }
-    }
-} 
+    });
+});
 
-playGame();
+const restartGame = document.querySelector("#restartButton");
+restartGame.addEventListener("click", () => {
+    userScore = 0;
+    computerScore = 0;
+    //add the round scores paragraphs again
+    userScoreP.textContent = `Player score: ${userScore}`;
+    computerScoreP.textContent = `Player score: ${computerScore}`;
+
+    resultsContainer.appendChild(userScoreP);
+    resultsContainer.appendChild(computerScoreP);
+});
