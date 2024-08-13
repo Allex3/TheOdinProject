@@ -1,7 +1,8 @@
 body {
     display: flex;
     flex: 1 1 auto;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 
@@ -29,4 +30,8 @@ body {
 }
 .topBorder {
     border-top: 1px solid gray;
+}
+
+.hovered {
+    background-color: rgb(190, 189, 189);
 }

@@ -5,22 +5,41 @@ const gridLine = document.createElement("div");
 
 divInGrid.classList.toggle("squareDivInGrid");
 gridLine.classList.toggle("gridLine");
-//added the css classes for styling 
+//added the css classes for styling
 
-for (let i=0; i<16; i++) //16 squares on the grid line
-{
-    const divClone = divInGrid.cloneNode(true);
-    if (i==0) divClone.classList.toggle("leftBorder");
-    if (i==15) divClone.classList.toggle("rightBorder");
-    gridLine.appendChild(divClone);
-}
+//the function for creating the grid
 
-//now add the 16 lines to the main container div 
-for (let i=0; i<16; i++) {
-    const lineClone = gridLine.cloneNode(true);
-    if (i==0) lineClone.classList.toggle("topBorder");
-    if (i==15) lineClone.classList.toggle("bottomBorder"); 
-    container.appendChild(lineClone); 
+function createGrid(sideSize) {
+    for (let i = 0; i < sideSize; i++) {
+        //sideSize squares on the grid line
+
+        const divClone = divInGrid.cloneNode(true);
+        if (i == 0) divClone.classList.toggle("leftBorder");
+        if (i == sideSize - 1) divClone.classList.toggle("rightBorder");
+
+        gridLine.appendChild(divClone);
+    }
+
+    //now add the sizeSize lines to the main container div
+    for (let i = 0; i < sideSize; i++) {
+        const lineClone = gridLine.cloneNode(true);
+        if (i == 0) lineClone.classList.toggle("topBorder");
+        if (i == sideSize - 1) lineClone.classList.toggle("bottomBorder");
+        container.appendChild(lineClone);
+    }
+
+    //now let's actually add events
+    //(i tried adding events to created divs
+    //but I think events can only be added once they are on the DOM? cuz it didn't work)
+
+    const squares = document.querySelectorAll(".squareDivInGrid");
+    squares.forEach((square) => {
+        square.addEventListener("mouseover", (e) =>
+            e.target.classList.add("hovered")
+        );
+    });
+
+    //ok now it actually works so they have to be on the DOM first..
 }
 
 //leftBorder, etc. are classes for the remained border on top, left, bottom, right
@@ -29,3 +48,12 @@ for (let i=0; i<16; i++) {
 
 //first time using cloneNode, didn't know I couldn't append it directly multiple times
 //but it's ONE node created so it makes sense... it's a reference
+const selectGrid = document.querySelector("#selectGrid");
+selectGrid.addEventListener("click", () => {
+    let sideSize = parseInt(
+        prompt(
+            "How many squares should a line of the grid have? The grid is a square, so on the sides it will have the same number of squares."
+        )
+    );
+    createGrid(sizeSize);
+});
