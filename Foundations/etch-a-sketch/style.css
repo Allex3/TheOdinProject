@@ -1,0 +1,8 @@
+.gridLine {
+    display: flex;
+    flex: initial;
+}
+
+.squareDivInGrid {
+    border: 1px solid gray;
+}
