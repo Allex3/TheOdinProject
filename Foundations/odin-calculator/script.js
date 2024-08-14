@@ -34,8 +34,11 @@ function updateDisplay(content) {
         //reset the display
         display.textContent = "";
         displayValue = "";
+        opExists = false;
+        currOp = undefined;
         return;
     }
+
     const operators = "%÷×+-=";
     let displayValueArr = displayValue.split("");
     if (
@@ -43,6 +46,16 @@ function updateDisplay(content) {
         operators.includes(content)
     )
         return; //don't put an operator after another operator
+
+    //check if the current content is a dot, and if we have another dot we don't do anything
+    if (content == ".") {
+        let numbers = displayValue.split(currOp); //split expression on operator
+        //then check so that the last number doesn't have a dot
+        if (numbers.length == 1) //only one number check it
+            if (numbers[0].split('').includes(".")) return;
+        if (numbers.length == 2) //two numbers, check the second
+            if (numbers[1].split('').includes(".")) return;
+    }
 
     //check if the content passed to the function is an operator
     //and the expression doesn't have an operator yet
@@ -62,22 +75,28 @@ function updateDisplay(content) {
             if (content == "=") return;
             display.textContent += content;
             displayValue = display.textContent;
+            currOp = content; //this is the current Op
             return;
         }
-        //operator exists, evaluate the expression, and reset the opExists var
+        //operator exists, evaluate the expression, and reset the opExists var, to check later
         opExists = false;
         [currN1, currN2] = displayValue.split(currOp); //split expression on operator
         currN1 = parseFloat(currN1);
         currN2 = parseFloat(currN2);
 
+        let result = operate(currOp, currN1, currN2);
+        //round result to two decimals
+        result = result.toFixed(2);
+
         display.textContent = operate(currOp, currN1, currN2);
 
-        if (content != "=") display.textContent += content;
+        if (content != "=")
+            (currOp = content), (display.textContent += content);
 
         displayValue = display.textContent;
         return;
     }
-    //a normal digit or a point
+    //a normal digit
     display.textContent += content;
 
     displayValue = display.textContent;
@@ -86,7 +105,7 @@ function updateDisplay(content) {
 const display = document.querySelector(".display"); //reference to the display
 let displayValue = display.textContent;
 let currOp, currN1, currN2; //operator and numbers for the CURRENT operation
-let opExists;
+let opExists, dotExists;
 
 const digitButtons = document.querySelectorAll(".calcButtons button");
 digitButtons.forEach((button) => {
