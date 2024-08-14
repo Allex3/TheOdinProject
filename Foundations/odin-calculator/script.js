@@ -29,7 +29,6 @@ function operate(op, a, b) {
     }
 }
 function updateDisplay(content) {
-    //checking for invalid operations
     if (content == "Clear") {
         //reset the display
         display.textContent = "";
@@ -38,7 +37,16 @@ function updateDisplay(content) {
         currOp = undefined;
         return;
     }
+    if (content == "⌫") {
+        //backspace one character
+        let displayValueArr = displayValue.split("");
+        displayValueArr.pop(); //pop the last char
+        display.textContent = displayValueArr.join(""); //make it a string again
+        displayValue = display.textContent;
+        return;
+    }
 
+    //checking for invalid operations
     const operators = "%÷×+-=";
     let displayValueArr = displayValue.split("");
     if (
@@ -51,10 +59,14 @@ function updateDisplay(content) {
     if (content == ".") {
         let numbers = displayValue.split(currOp); //split expression on operator
         //then check so that the last number doesn't have a dot
-        if (numbers.length == 1) //only one number check it
-            if (numbers[0].split('').includes(".")) return;
-        if (numbers.length == 2) //two numbers, check the second
-            if (numbers[1].split('').includes(".")) return;
+        if (numbers.length == 1)
+            if (numbers[0].split("").includes("."))
+                //only one number check it
+                return;
+        if (numbers.length == 2)
+            if (numbers[1].split("").includes("."))
+                //two numbers, check the second
+                return;
     }
 
     //check if the content passed to the function is an operator
@@ -96,10 +108,13 @@ function updateDisplay(content) {
         displayValue = display.textContent;
         return;
     }
-    //a normal digit
-    display.textContent += content;
+    //a normal digit, i hope
+    const digits = "0123456789.";
+    if (digits.includes(content)) {
+        display.textContent += content;
 
-    displayValue = display.textContent;
+        displayValue = display.textContent;
+    }
 }
 
 const display = document.querySelector(".display"); //reference to the display
@@ -119,3 +134,5 @@ digitButtons.forEach((button) => {
         e.target.style.opacity = 1;
     });
 });
+
+document.addEventListener("keydown", (e) => updateDisplay(e.key));
