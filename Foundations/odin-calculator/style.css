@@ -58,6 +58,7 @@ ul {
     box-sizing: border-box;
     font-size: inherit;
     width: inherit;
+    height: 5vh;
     border: 1px solid rgb(43, 145, 70);
     border-radius: 0.5vh;
     margin-bottom: 3vh;
