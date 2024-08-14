@@ -30,6 +30,12 @@ function operate(op, a, b) {
 }
 function updateDisplay(content) {
     //checking for invalid operations
+    if (content == "Clear") {
+        //reset the display
+        display.textContent = "";
+        displayValue = "";
+        return;
+    }
     const operators = "%÷×+-=";
     let displayValueArr = displayValue.split("");
     if (
@@ -44,12 +50,6 @@ function updateDisplay(content) {
     //the edge case operator after an operator is handled before
 
     if (operators.includes(content)) {
-        if (content == "Clear") //reset the display
-        {
-            display.textContent = "";
-            displayValue = "";
-            return; 
-        }
         //an operator, or equal sign
         //check if it is the first operator, then we just continue the expression
         displayValueArr.forEach((x) => {
