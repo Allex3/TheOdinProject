@@ -1,20 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Odin Calculator</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
-</head>
-<body>
-    <h1>Odin Calculator Project </h1>
-    <ul class="calcButtons">
-        <li id = "topBtnRow"><button id="clearBtn">Clear</button><button id="equalBtn">=</button></li>
-        <li class ="opBtn"><button>1</button><button>2</button><button>3</button><button>+</button></li>
-        <li class ="opBtn"><button>4</button><button>5</button><button>6</button><button>-</button></li>
-        <li class ="opBtn"><button>1</button><button>2</button><button>3</button><button>÷</button></li>
-        <li class ="opBtn"><button>0</button><button>,</button><button>%</button><button>×</button></li>
-    </ul>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Odin Calculator</title>
+        <link rel="stylesheet" href="style.css" />
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <h1>Odin Calculator Project</h1>
+        <div class="calcContainer">
+            <output class="display" name="display" for="a b">10+5/2</output>
+            <ul class="calcButtons">
+                <li id="topBtnRow">
+                    <button id="clearBtn">Clear</button
+                    ><button id="equalBtn">=</button>
+                </li>
+                <li class="opBtnRow">
+                    <button>1</button><button>2</button><button>3</button
+                    ><button>+</button>
+                </li>
+                <li class="opBtnRow">
+                    <button>4</button><button>5</button><button>6</button
+                    ><button>-</button>
+                </li>
+                <li class="opBtnRow">
+                    <button>1</button><button>2</button><button>3</button
+                    ><button>÷</button>
+                </li>
+                <li class="opBtnRow">
+                    <button>0</button><button>,</button><button>%</button
+                    ><button>×</button>
+                </li>
+            </ul>
+        </div>
+    </body>
 </html>

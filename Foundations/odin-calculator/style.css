@@ -2,25 +2,65 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #add8e6;
 }
 ul {
     margin: 0;
     padding: 0;
 }
 
+.calcContainer {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    font-size: 3vh;
+    width: 46vh;
+}
+
 .calcButtons li {
     display: flex;
 }
 
-.calcButtons .opBtn button {
-    width: 13vh;
-    height: 8vh;
-    margin: 1vh;
+.calcButtons .opBtnRow button {
+    width: 10vh;
+    height: 5vh;
+    margin: 0.8vh;
+    font-size: inherit;
+    background-color: rgb(38, 38, 38);
+    border: 1px solid white;
+    color: white;
+    border-radius: 1vh;
 }
 
 .calcButtons #topBtnRow button{
     box-sizing: border-box;
     margin: 1vh;
     padding: 1vh;
-    flex: 1 1 0;
+    flex: 1 1 10vh;
+    font-size: inherit;
+    border-radius: 1vh;
+    border: 1px solid rgb(180, 86, 160);
+}
+
+#equalBtn {
+    background-color: rgb(102, 244, 74);
+    color: black;
+}
+
+#clearBtn {
+    background-color: rgb(244, 74, 74);
+    color: #dddada;
+}
+
+.display {
+    background-color: rgb(77, 18, 69);
+    box-sizing: border-box;
+    font-size: inherit;
+    width: inherit;
+    border: 1px solid rgb(43, 145, 70);
+    border-radius: 0.5vh;
+    margin-bottom: 3vh;
+    color: white;
+    padding: 1vh;
 }
