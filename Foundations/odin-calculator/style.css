@@ -11,6 +11,15 @@ ul {
 .calcButtons li {
     display: flex;
 }
+
+.calcButtons li button {
+    width: 13vh;
+    height: 8vh;
+    margin: 1vh;
+}
 .calcButtons #clearBtnRow {
     justify-content: center;
+}
+.calcButtons #clearBtnRow button {
+    width: 15vh;
 }
