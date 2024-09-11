@@ -8,37 +8,34 @@
 * {
     box-sizing: border-box; 
 }
-html, body {
-    overflow-x: hidden;
-}
+
+
 body {
     margin: 0;
     display: flex;
     background-color: #EEE;
+    overflow:visible;
 }
-#background
-{
-    height: inherit;
+
+#background{
     width: 40vw;
     height: 100vh;
-    position: relative;
-}
-#background > img {
-    width: inherit;
-    height: inherit;
     opacity: 0.7;
     filter: blur(2px);
+    position: sticky;
+    left: 0;
+    top: 0;
 }
 #logo {
     font-family: norsebold;
     font-size: 2.5rem;
     font-weight: 600;
+    width: 40vw;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: absolute;
-    top: 40vh;
-    left: 19%;
+    position: fixed;
 }
 #logo span {
     text-shadow: 1px 1px 3px white;
@@ -80,7 +77,7 @@ form h2 {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
-    gap: 40px;
+    gap: 60px;
     color: #6B6B6B;
 
     .inputDiv { /* child of twoInputs class that is of class inputDiv*/
@@ -89,11 +86,54 @@ form h2 {
     }
 
     input { /* style the input inside the twoInputs div*/
-        border: 1px solid rgba(178, 178, 178, 0.3);
+        border: 1px solid #E5E7EB;
         padding: 2px;
+        border-radius: 3px;
+    }
+    input:invalid:focus {
+        border: 1px solid red;
     }
 }
 
-@media only screen and (max-width: 600px) {
+input[type=submit] {
+    border: none;
+    background-color: #3a67c5;
+    padding: 12px 40px;
+    border-radius: 10px;
+    font-weight: 600;
+    margin-left: 40px;
+    margin-top: 30px;
+    color: white;
+}
 
+#logIn {
+    margin-left: 40px;
+    margin-top: 20px;
+    font-size: 0.8rem;
+    a {
+        text-decoration: none;
+        color: green;
+        font-weight: 1000;
+    }
+}
+@media only screen and (max-width: 800px) {
+    #background {
+        width: 5rem;
+        height: 100vh;
+    }
+    #background img {
+        width: 8rem;
+    }
+    #logo {
+        left: 0;
+        span {
+            display: none;
+        }
+    }
+    form {
+        margin-left: 40px;
+    }
+    .inputDiv {
+        display: block;
+    }
 }

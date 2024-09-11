@@ -7,13 +7,15 @@
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
-        <div id="background">
-            <img src="images/222382.jpg" alt="One Piece background" />
-            <div id="logo">
-                <img src="images/pngegg.png" alt="One Piece" /><span
-                    >OP Articles</span
-                >
-            </div>
+        <img
+            src="images/222382.jpg"
+            alt="One Piece background"
+            id="background"
+        />
+        <div id="logo">
+            <img src="images/pngegg.png" alt="One Piece" /><span
+                >OP Articles</span
+            >
         </div>
         <form action="example.com" method="post">
             <h2>Sign up to our One Piece News!</h2>
@@ -22,30 +24,69 @@
 
                 <div class="twoInputs">
                     <div class="inputDiv">
-                        <label for="">FIRST NAME</label><input type="text" />
+                        <label for="firstName">FIRST NAME *</label
+                        ><input
+                            id="firstName"
+                            type="text"
+                            name="firstName"
+                            required
+                        />
                     </div>
                     <div class="inputDiv">
-                        <label for="">LAST NAME</label><input type="text" />
+                        <label for="lastName">LAST NAME *</label
+                        ><input
+                            id="lastName"
+                            type="text"
+                            name="lastName"
+                            required
+                        />
                     </div>
                 </div>
                 <div class="twoInputs">
                     <div class="inputDiv">
-                        <label for="">EMAIL</label><input type="text" />
+                        <label for="email">EMAIL *</label
+                        ><input
+                            id="email"
+                            type="email"
+                            name="email"
+                            required
+                            placeholder="any@example.com"
+                        />
                     </div>
                     <div class="inputDiv">
-                        <label for="">PHONE NUMBER</label><input type="text" />
+                        <label for="phoneNumber">PHONE NUMBER (OPTIONAL)</label
+                        ><input
+                            id="phoneNumber"
+                            type="tel"
+                            name="phoneNumber"
+                        />
                     </div>
                 </div>
                 <div class="twoInputs">
                     <div class="inputDiv">
-                        <label for="">PASSWORD</label><input type="text" />
+                        <label for="password">PASSWORD *</label
+                        ><input
+                            id="password"
+                            type="password"
+                            minlength="8"
+                            required
+                            name="password"
+                        />
                     </div>
                     <div class="inputDiv">
-                        <label for="">CONFIRM PASSWORD</label><input type="text" />
+                        <label for="confirmPassword">CONFIRM PASSWORD *</label
+                        ><input
+                            id="confirmPassword"
+                            type="password"
+                            minlength="8"
+                            required
+                            name="confirmPassword"
+                        />
                     </div>
                 </div>
             </fieldset>
-            <input type="submit" value="Create Account">
+            <input type="submit" value="Create Account" />
+            <p id="logIn">Already have an account? <a href="">Log in</a></p>
         </form>
     </body>
 </html>
