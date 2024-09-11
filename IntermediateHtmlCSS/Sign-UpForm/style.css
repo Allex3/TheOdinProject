@@ -1,0 +1,99 @@
+@font-face {
+    font-family: 'norsebold';
+    src: url('fonts/norse-bold-webfont.woff2') format('woff2'),
+         url('fonts/norse-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+* {
+    box-sizing: border-box; 
+}
+html, body {
+    overflow-x: hidden;
+}
+body {
+    margin: 0;
+    display: flex;
+    background-color: #EEE;
+}
+#background
+{
+    height: inherit;
+    width: 40vw;
+    height: 100vh;
+    position: relative;
+}
+#background > img {
+    width: inherit;
+    height: inherit;
+    opacity: 0.7;
+    filter: blur(2px);
+}
+#logo {
+    font-family: norsebold;
+    font-size: 2.5rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 40vh;
+    left: 19%;
+}
+#logo span {
+    text-shadow: 1px 1px 3px white;
+}
+#logo img {
+    width: 100px;
+    height: 100px;
+}
+
+form {
+    flex: auto;
+    padding-top: 15vh;
+    padding-bottom: 15vh;
+    font-family: 'Courier New', Courier, monospace;
+}
+form h2 {
+    margin-left: 40px;
+}
+#inputsField {
+    background-color: white;
+    border: 0px;
+    padding: 0px;
+    padding-bottom: 20px;
+    font-size: 0.65rem;
+    font-weight: 600;
+}
+#inputsField legend {
+    position: relative;
+    top: 30px;
+    font-weight: 500;
+    font-size: 1.3rem;
+    padding: 30px 30px 30px 0;
+    margin-left: 40px;
+    margin-bottom: 20px;
+}
+
+#inputsField .twoInputs {
+    margin-left: 40px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 40px;
+    color: #6B6B6B;
+
+    .inputDiv { /* child of twoInputs class that is of class inputDiv*/
+        display: flex;
+        flex-flow: column wrap;
+    }
+
+    input { /* style the input inside the twoInputs div*/
+        border: 1px solid rgba(178, 178, 178, 0.3);
+        padding: 2px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+
+}

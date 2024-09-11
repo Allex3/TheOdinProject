@@ -1,11 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign-Up Form</title>
-</head>
-<body>
-    
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Sign-Up Form</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div id="background">
+            <img src="images/222382.jpg" alt="One Piece background" />
+            <div id="logo">
+                <img src="images/pngegg.png" alt="One Piece" /><span
+                    >OP Articles</span
+                >
+            </div>
+        </div>
+        <form action="example.com" method="post">
+            <h2>Sign up to our One Piece News!</h2>
+            <fieldset id="inputsField">
+                <legend>Sign up now!</legend>
+
+                <div class="twoInputs">
+                    <div class="inputDiv">
+                        <label for="">FIRST NAME</label><input type="text" />
+                    </div>
+                    <div class="inputDiv">
+                        <label for="">LAST NAME</label><input type="text" />
+                    </div>
+                </div>
+                <div class="twoInputs">
+                    <div class="inputDiv">
+                        <label for="">EMAIL</label><input type="text" />
+                    </div>
+                    <div class="inputDiv">
+                        <label for="">PHONE NUMBER</label><input type="text" />
+                    </div>
+                </div>
+                <div class="twoInputs">
+                    <div class="inputDiv">
+                        <label for="">PASSWORD</label><input type="text" />
+                    </div>
+                    <div class="inputDiv">
+                        <label for="">CONFIRM PASSWORD</label><input type="text" />
+                    </div>
+                </div>
+            </fieldset>
+            <input type="submit" value="Create Account">
+        </form>
+    </body>
 </html>
