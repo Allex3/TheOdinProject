@@ -1,23 +1,22 @@
 @font-face {
-    font-family: 'norsebold';
-    src: url('fonts/norse-bold-webfont.woff2') format('woff2'),
-         url('fonts/norse-bold-webfont.woff') format('woff');
+    font-family: "norsebold";
+    src: url("fonts/norse-bold-webfont.woff2") format("woff2"),
+        url("fonts/norse-bold-webfont.woff") format("woff");
     font-weight: normal;
     font-style: normal;
 }
 * {
-    box-sizing: border-box; 
+    box-sizing: border-box;
 }
-
 
 body {
     margin: 0;
     display: flex;
-    background-color: #EEE;
-    overflow:visible;
+    background-color: #eee;
+    overflow: visible;
 }
 
-#background{
+#background {
     width: 40vw;
     height: 100vh;
     opacity: 0.7;
@@ -36,20 +35,21 @@ body {
     align-items: center;
     justify-content: center;
     position: fixed;
-}
-#logo span {
-    text-shadow: 1px 1px 3px white;
-}
-#logo img {
-    width: 100px;
-    height: 100px;
+
+    span {
+        text-shadow: 1px 1px 3px white;
+    }
+    img {
+        width: 100px;
+        height: 100px;
+    }
 }
 
 form {
     flex: auto;
     padding-top: 15vh;
     padding-bottom: 15vh;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: "Courier New", Courier, monospace;
 }
 form h2 {
     margin-left: 40px;
@@ -78,15 +78,17 @@ form h2 {
     align-items: center;
     margin-bottom: 20px;
     gap: 60px;
-    color: #6B6B6B;
+    color: #6b6b6b;
 
-    .inputDiv { /* child of twoInputs class that is of class inputDiv*/
+    .inputDiv {
+        /* child of twoInputs class that is of class inputDiv*/
         display: flex;
         flex-flow: column wrap;
     }
 
-    input { /* style the input inside the twoInputs div*/
-        border: 1px solid #E5E7EB;
+    input {
+        /* style the input inside the twoInputs div*/
+        border: 1px solid #e5e7eb;
         padding: 2px;
         border-radius: 3px;
     }
@@ -95,7 +97,7 @@ form h2 {
     }
 }
 
-input[type=submit] {
+input[type="submit"] {
     border: none;
     background-color: #3a67c5;
     padding: 12px 40px;
@@ -118,22 +120,41 @@ input[type=submit] {
 }
 @media only screen and (max-width: 800px) {
     #background {
-        width: 5rem;
+        width: 8rem;
         height: 100vh;
     }
-    #background img {
-        width: 8rem;
-    }
     #logo {
-        left: 0;
+        width: 8rem;
+        height: 100vh;
+
         span {
             display: none;
         }
     }
-    form {
-        margin-left: 40px;
+    #inputsField legend {
+        margin-left: 200px;
     }
-    .inputDiv {
-        display: block;
+    #inputsField .twoInputs {
+        display: flex;
+        flex-flow: column wrap;
+        gap: 0px;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        font-size: 1.2rem;
+        width: 100%;
+        /* it didnt work at first cuz specifity, i thought in @media it didn't matter and it would have gotten handled anyway*/
+        .inputDiv {
+            width: 50%;
+            margin-bottom: 15px;
+            align-items: center;
+            justify-content: center;
+            input {
+                padding: 5px 10px;
+            }
+        }
+    }
+    input[type=submit] {
+        margin-left: 27vw;
     }
 }
