@@ -79,7 +79,7 @@ img {
         background-color: rgb(218, 224, 187);
         border-radius: 10px;
         height: 30%;
-        width: 80%; 
+        width: 80%;
     }
 
     .userInfo {
@@ -136,4 +136,108 @@ img {
 
 .main-content {
     background-color: #d9f99d;
+    padding: 25px;
+    gap: 25px;
+    display: grid;
+    grid-template-columns: 2.5fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    * {
+        border-radius: 10px;
+    }
+
+    > * > p {
+        font-weight: 1000;
+    }
+    .projects {
+        grid-row: 1 / -1;
+    }
+    .projectGrid {
+
+        display: grid; /* the projects div is itself a grid for the projects*/
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
+        /* the row height for the "Your projects" text
+        so only one row defined*/
+
+        gap: 20px;
+
+        .project {
+            box-shadow: 3px 3px 5px #84cc16;
+            background-color: #ecfccb;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 4fr 1fr;
+
+            .projectText {
+                padding: 20px;
+            }
+        }
+
+        .project .projectActions {
+            justify-self: end;
+            display: flex;
+            padding: 10px;
+            gap: 20px;
+            * {
+                flex: 0 1 auto;
+            }
+        }
+    }
+
+    .announcementGrid {
+        box-shadow: 3px 3px 5px #84cc16;
+        display: grid;
+        height: 80%;
+        background-color: #ecfccb;
+        padding: 20px;
+        grid-template-rows: 1fr 1fr 1fr;
+        gap: 10px;
+        border: 1px solid #84cc16;
+
+        .announcement {
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(179, 177, 177, 0.5);
+
+            .annHeader {
+                font-weight: bold;
+            }
+            .annText {
+                font-size: 0.8rem;
+            }
+        }
+    }
+    .trending {
+        display: grid;
+    }
+    .trendingGrid {
+        box-shadow: 3px 3px 5px #84cc16;
+        display: grid;
+        background-color: #ecfccb;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        gap: 20px;
+        border: 1px solid #84cc16;
+        padding: 20px;
+
+        .trendingSubject {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            align-items: center;
+            padding-left: 20px;
+            padding-right: 30px;
+            gap: 20px;
+
+            img {
+                height: 50px;
+            }
+
+            div {
+                display: grid;
+                grid-template-rows: 1fr 1fr;
+                height: 50px;
+                p {
+                    margin: 0;
+                }
+            }
+        }
+    }
 }
