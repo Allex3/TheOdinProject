@@ -3,12 +3,16 @@
 body {
     display: grid;
     grid-template-columns: 1fr 4fr;
-    grid-template-rows: 1fr 3fr;    
+    grid-template-rows: 1fr 3fr;
     height: 100vh;
     width: 100vw;
     margin: 0;
     font-family: "Roboto";
-    overflow:visible;
+    overflow: visible;
+}
+
+img {
+    height: 25px; /* all images beside the logo ones or profile ones*/
 }
 
 .sidebar {
@@ -20,20 +24,23 @@ body {
     grid-template-rows: 0.1fr 1fr 1.2fr;
     row-gap: 3.5%;
 
-    .userLinks, .importantLinks { 
+    .userLinks,
+    .importantLinks {
         margin-left: 20px;
         display: flex;
         flex-flow: column wrap;
         gap: 8px;
     }
 
-    .sidebarItem { /* center the text to the image and distance them*/
+    .sidebarItem {
+        /* center the text to the image and distance them*/
         display: flex;
         align-items: center;
         gap: 20px;
     }
 
-    #siteLogo { /* */
+    #siteLogo {
+        /* */
         display: flex;
         align-items: center;
         margin-left: 10px;
@@ -44,14 +51,87 @@ body {
     }
 }
 
-img {
-    height: 25px; /* all images beside the logo ones or profile ones*/
-}
-
-
-
 .header {
     background-color: #ecfccb;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    grid-template-rows: 1fr 1.3fr;
+    padding: 20px;
+    gap: 20px;
+    font-weight: 1000;
+
+    .search,
+    .userInfo,
+    .userHello,
+    .userActions {
+        display: flex;
+        align-items: center;
+    }
+
+    .search,
+    .userHello {
+        margin-left: 25px;
+        gap: 10px;
+    }
+
+    .search input {
+        border: 0;
+        background-color: rgb(218, 224, 187);
+        border-radius: 10px;
+        height: 30%;
+        width: 80%; 
+    }
+
+    .userInfo {
+        justify-content: center;
+        gap: 20px;
+
+        img[src="images/luffy.jpg"] {
+            height: 40px;
+        }
+    }
+
+    .userHello {
+        gap: 20px;
+
+        div {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 5px;
+
+            #helloText {
+                font-size: 0.7rem;
+                margin: 0;
+                align-self: end;
+            }
+
+            #helloUsername {
+                font-size: 1.2rem;
+                align-self: start;
+                margin: 0;
+            }
+        }
+
+        img {
+            height: 50px;
+        }
+    }
+
+    .userActions {
+        justify-content: center;
+        gap: 30px;
+
+        button {
+            border: 0;
+            margin: 0;
+            padding: 10px 30px;
+            border-radius: 20px;
+            background-color: #84cc16;
+            font-weight: 1000;
+            color: rgba(7, 71, 29, 0.647);
+        }
+    }
 }
 
 .main-content {
