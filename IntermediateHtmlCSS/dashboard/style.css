@@ -21,10 +21,10 @@ img {
     font-weight: 1000;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 0.1fr 1fr 1.2fr;
+    grid-template-rows: 0.1fr 200px; 
     row-gap: 3.5%;
 
-    .userLinks,
+    .userLinks, 
     .importantLinks {
         margin-left: 20px;
         display: flex;
