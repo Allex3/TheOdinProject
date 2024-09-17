@@ -77,8 +77,8 @@ img {
     .search input {
         border: 0;
         background-color: rgb(218, 224, 187);
-        border-radius: 10px;
-        height: 30%;
+        border-radius: 12px;
+        height: 60%;
         width: 80%;
     }
 
